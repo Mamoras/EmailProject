@@ -10,28 +10,33 @@ namespace EmailProject
     {
         static void Main(string[] args)
         {
+
             int opcao = 0;
             while (opcao != 5)
             {
                 Tela.mostrarTela();
+                Console.Write("Escolha uma opção: ");            
                 try
                 {
                     opcao = int.Parse(Console.ReadLine());
                 }
-                catch (ModelException e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                     opcao = 0;
                 }
-
-
+                Console.ReadLine();
+                Console.Clear();
+                
             }
 
 
 
 
 
-            Console.ReadLine();
+
+
+            
         }
     }
 }
