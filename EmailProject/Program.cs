@@ -8,8 +8,20 @@ namespace EmailProject
 {
     class Program
     {
+        public static List<Conta> contas;
+
         static void Main(string[] args)
         {
+
+            contas = new List<Conta>();
+
+            Conta c1 = new Conta("123", "login", "João Marcos");
+            contas.Add(c1);
+            Conta c2 = new Conta("321", "user", "Maria");
+            contas.Add(c2);
+            Conta c3 = new Conta("abc", "mario", "Mario");
+            contas.Add(c3);
+
 
             int opcao = 0;
             while (opcao != 5)
@@ -28,6 +40,20 @@ namespace EmailProject
                 Console.ReadLine();
                 Console.Clear();
                 
+                if (opcao == 1)
+                {
+                    try
+                    {
+                        Tela.checarMensagem();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Erro inesperado! " + e.Message);
+                        opcao = 0;
+                    }
+                }
+
+
             }
 
 
