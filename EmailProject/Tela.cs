@@ -67,6 +67,7 @@ namespace EmailProject
                 }
                 else
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Senha incorreta!");
                     Console.ReadLine();
                 }
@@ -82,15 +83,28 @@ namespace EmailProject
 
         public static void fazerCadastro()
         {
+            Console.Clear();
+
             Console.Write("Digite o login a ser cadastrado: ");
             string login = Console.ReadLine();
             int x = Program.contas.FindIndex(f => f.login == login);
-            if(x == -1)
+            if(x == 0)
             {
-                throw new ModelException("Este login já está em uso!");
+                Console.WriteLine("Erro:Login já está em uso!");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.Write("Digite a senha: ");
+                string senha = Console.ReadLine();
+                Console.WriteLine();
+                Console.Write("Digite seu nome: ");
+                string nome = Console.ReadLine();
+                Conta p = new Conta(senha, login, nome);
+                Program.contas.Add(p);
             }
             
-
         }
 
 

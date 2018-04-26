@@ -51,6 +51,19 @@ namespace EmailProject
                         opcao = 0;
                     }
                 }
+
+                if (opcao == 2)
+                {
+                    try
+                    {
+                        Tela.fazerCadastro();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Erro ao fazer cadastro: " + e.Message);
+                        opcao = 0;
+                    }
+                }
                 
                 Console.Clear();
 
