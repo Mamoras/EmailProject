@@ -24,7 +24,7 @@ namespace EmailProject
 
 
             int opcao = 0;
-            while (opcao != 5)
+            while (opcao != 6)
             {
                 Tela.mostrarTela();
                 Console.Write("Escolha uma opção: ");            
@@ -37,14 +37,13 @@ namespace EmailProject
                     Console.WriteLine(e.Message);
                     opcao = 0;
                 }
-                Console.ReadLine();
-                Console.Clear();
+                
                 
                 if (opcao == 1)
                 {
                     try
                     {
-                        Tela.checarMensagem();
+                        Tela.fazerLogin();
                     }
                     catch (Exception e)
                     {
@@ -52,17 +51,15 @@ namespace EmailProject
                         opcao = 0;
                     }
                 }
-
+                
+                Console.Clear();
 
             }
+            Console.ReadLine();
 
 
 
 
-
-
-
-            
         }
     }
 }
