@@ -21,10 +21,10 @@ namespace EmailProject
             contas.Add(c2);
             Conta c3 = new Conta("abc", "mario", "Mario");
             contas.Add(c3);
-
+            contas.Sort();
 
             int opcao = 0;
-            while (opcao != 6)
+            while (opcao != 5)
             {
                 Tela.mostrarTela();
                 Console.Write("Escolha uma opção: ");            
@@ -65,10 +65,22 @@ namespace EmailProject
                     }
                 }
                 
+                if (opcao == 3)
+                {
+                    Tela.listarContas();
+
+                }
+
+                if (opcao == 5)
+                {
+                    Console.WriteLine("Fim de programa!");
+                    Console.ReadLine();
+                }
+                
                 Console.Clear();
 
             }
-            Console.ReadLine();
+            
 
 
 

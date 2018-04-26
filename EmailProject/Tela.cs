@@ -12,10 +12,9 @@ namespace EmailProject
         {
             Console.WriteLine("1 - Fazer login");
             Console.WriteLine("2 - Fazer cadastro");
-            Console.WriteLine("3 - Esqueceu sua senha?");
-            Console.WriteLine("4 - Esqueceu seu login?");
-            Console.WriteLine("5 - Escrever Mensagem");
-            Console.WriteLine("6 - Sair");
+            Console.WriteLine("3 - Listar contas");
+            Console.WriteLine("4 - Escrever Mensagem");
+            Console.WriteLine("5 - Sair");
             Console.WriteLine();
             Console.Write("Selecione uma opção: ");
         }
@@ -90,7 +89,7 @@ namespace EmailProject
             int x = Program.contas.FindIndex(f => f.login == login);
             if(x == 0)
             {
-                Console.WriteLine("Erro:Login já está em uso!");
+                Console.WriteLine("Erro: Login já está em uso!");
                 Console.ReadLine();
             }
             else
@@ -103,10 +102,22 @@ namespace EmailProject
                 string nome = Console.ReadLine();
                 Conta p = new Conta(senha, login, nome);
                 Program.contas.Add(p);
+                Program.contas.Sort();
             }
             
         }
 
+        public static void listarContas()
+        {
+            Console.Clear();
+            Console.WriteLine("Contas cadastradas: ");
+            for(int i = 0; i < Program.contas.Count; i++)
+            {
+                Console.WriteLine(Program.contas[i]);
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        }
 
 
 

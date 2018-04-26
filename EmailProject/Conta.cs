@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmailProject
 {
-    class Conta
+    class Conta : IComparable<Conta>
     {
         public string senha { get; private set; }
         public string login { get; private set; }
@@ -23,9 +23,15 @@ namespace EmailProject
 
         }
 
+        public override string ToString()
+        {
+            return "Login: " + login +
+                "\nNome: " + nome; 
+        }
 
-
-
-
+        public int CompareTo(Conta other)
+        {
+            return this.nome.CompareTo(other.nome);
+        }
     }
 }
