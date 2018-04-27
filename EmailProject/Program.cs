@@ -71,6 +71,19 @@ namespace EmailProject
 
                 }
 
+                if (opcao == 4)
+                {
+                    try
+                    {
+                        Tela.escreverMensagem();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Erro ao escrever a mensagem: " + e.Message);
+                        opcao = 0;
+                    }
+                }
+
                 if (opcao == 5)
                 {
                     Console.WriteLine("Fim de programa!");

@@ -10,7 +10,7 @@ namespace EmailProject
     {
         public static void mostrarTela()
         {
-            Console.WriteLine("1 - Fazer login");
+            Console.WriteLine("1 - Checar Mensagens");
             Console.WriteLine("2 - Fazer cadastro");
             Console.WriteLine("3 - Listar contas");
             Console.WriteLine("4 - Escrever Mensagem");
@@ -117,6 +117,53 @@ namespace EmailProject
                 Console.WriteLine();
             }
             Console.ReadLine();
+        }
+
+        public static void escreverMensagem()
+        {
+            Console.Clear();
+            Console.Write("Digite seu login: ");
+            string login = Console.ReadLine();
+            int y = Program.contas.FindIndex(x => x.login == login);
+            if (y != -1)
+            {
+                Console.WriteLine();
+                Console.Write("Digite sua senha: ");
+                string senha = Console.ReadLine();
+                int x = Program.contas.FindIndex(f => f.senha == senha);
+                if (x != -1)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Olá " + Program.contas[y].nome + "!");
+                    Console.WriteLine("Para quem você gostaria de escrever uma mensagem?");
+                    Console.Write("Nome do destinatário: ");
+                    string nome = Console.ReadLine();
+                    int z = Program.contas.FindIndex(g => g.nome == nome);
+                    if(z != -1)
+                    {
+                        Console.WriteLine("Digite sua mensagem para " + Program.contas[z].nome + ":");
+                        string mensagem = Console.ReadLine();
+                        Mensagem m = new Mensagem(mensagem, Program.contas[y], Program.contas[z]);
+                        Program.contas[z].mensagens.Add(m);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Destinatário não encontrado!!");
+                        Console.ReadLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Senha incorreta!");
+                    Console.ReadLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Login não encontrado!");
+                Console.ReadLine();
+            }
         }
 
 
