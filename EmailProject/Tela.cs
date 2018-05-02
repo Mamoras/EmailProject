@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Xml.Serialization;
+
 
 namespace EmailProject
 {
@@ -14,7 +17,8 @@ namespace EmailProject
             Console.WriteLine("2 - Fazer cadastro");
             Console.WriteLine("3 - Listar contas");
             Console.WriteLine("4 - Escrever Mensagem");
-            Console.WriteLine("5 - Sair");
+            Console.WriteLine("5 - Serializar dados");
+            Console.WriteLine("6 - Sair");
             Console.WriteLine();
             Console.Write("Selecione uma opção: ");
         }
@@ -143,7 +147,7 @@ namespace EmailProject
                     {
                         Console.WriteLine("Digite sua mensagem para " + Program.contas[z].nome + ":");
                         string mensagem = Console.ReadLine();
-                        Mensagem m = new Mensagem(mensagem, Program.contas[y], Program.contas[z]);
+                        Mensagem m = new Mensagem(mensagem, Program.contas[y].nome, Program.contas[z].nome);
                         Program.contas[z].mensagens.Add(m);
                     }
                     else
@@ -164,6 +168,19 @@ namespace EmailProject
                 Console.WriteLine("Login não encontrado!");
                 Console.ReadLine();
             }
+        }
+
+        public static void serializar()
+        {
+            Console.Clear();
+            Console.WriteLine("Serializando os dados das contas e mensagens!");
+            Console.ReadLine();
+            XmlSerializer serializadorConta = new XmlSerializer(typeof(List<Conta>));
+            StreamWriter stream = new StreamWriter(@"C:\Users\joaov\Documents\Projetos\EmailProject\dados\Dados_importados.xml");
+
+            serializadorConta.Serialize(stream, Program.contas);
+            Console.WriteLine("Dados serializados com sucesso!!");
+            Console.ReadLine();
         }
 
 

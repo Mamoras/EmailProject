@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfConta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Conta>
+    <senha>123</senha>
+    <login>login</login>
+    <nome>João Marcos</nome>
+    <mensagens />
+  </Conta>
+  <Conta>
+    <senha>joao20ev</senha>
+    <login>Joaomamorim</login>
+    <nome>Joao victor</nome>
+    <mensagens />
+  </Conta>
+  <Conta>
+    <senha>321</senha>
+    <login>user</login>
+    <nome>Maria</nome>
+    <mensagens>
+      <Mensagem>
+        <conteudo>Olá maria tudo bem?</conteudo>
+        <remetente>Joao victor</remetente>
+        <destinatario>Maria</destinatario>
+      </Mensagem>
+    </mensagens>
+  </Conta>
+  <Conta>
+    <senha>abc</senha>
+    <login>mario</login>
+    <nome>Mario</nome>
+    <mensagens />
+  </Conta>
+</ArrayOfConta>

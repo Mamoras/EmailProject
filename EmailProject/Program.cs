@@ -24,7 +24,7 @@ namespace EmailProject
             contas.Sort();
 
             int opcao = 0;
-            while (opcao != 5)
+            while (opcao != 6)
             {
                 Tela.mostrarTela();
                 Console.Write("Escolha uma opção: ");            
@@ -84,7 +84,13 @@ namespace EmailProject
                     }
                 }
 
-                if (opcao == 5)
+                if(opcao == 5)
+                {
+                    Tela.serializar();
+
+                }
+
+                if (opcao == 6)
                 {
                     Console.WriteLine("Fim de programa!");
                     Console.ReadLine();

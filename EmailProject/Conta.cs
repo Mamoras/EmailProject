@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace EmailProject
 {
-    class Conta : IComparable<Conta>
+    public class Conta : IComparable<Conta>
     {
-        public string senha { get; private set; }
-        public string login { get; private set; }
-        public string nome { get; private set; }
+        public string senha { get;  set; }
+        public string login { get;  set; }
+        public string nome { get;  set; }
         public List<Mensagem> mensagens { get; set; }
 
 
-        public Conta (string senha, string login, string nome)
+        public Conta()
+        {
+
+        }
+
+        public Conta(string senha, string login, string nome)
         {
             this.senha = senha;
             this.login = login;
@@ -22,6 +27,9 @@ namespace EmailProject
             mensagens = new List<Mensagem>();
 
         }
+
+
+
 
         public override string ToString()
         {

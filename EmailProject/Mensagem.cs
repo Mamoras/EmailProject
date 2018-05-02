@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace EmailProject
 {
-    class Mensagem
+    public class Mensagem
     {
         public string conteudo { get; set; }
-        public Conta remetente { get; set; }
-        public Conta destinatario { get; set; }
+        public string remetente { get; set; }
+        public string destinatario { get; set; }
 
-        public Mensagem(string conteudo, Conta remetente, Conta destinatario)
+        public Mensagem()
+        {
+
+        }
+
+        public Mensagem(string conteudo, string remetente, string destinatario)
         {
             this.conteudo = conteudo;
             this.remetente = remetente;
@@ -22,9 +27,9 @@ namespace EmailProject
         public override string ToString()
         {
             return "Remetente : " +
-                remetente.nome +
+                remetente +
                 "\nDestinatário : " +
-                destinatario.nome +
+                destinatario +
                 "\nMensagem : " +
                 conteudo;
         }
